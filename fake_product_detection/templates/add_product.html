@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Register Product</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Register Product</h1>
+
+<p>
+Add a genuine product to the blockchain.
+</p>
+
+{% if success %}
+
+<div class="success">
+
+<h2>
+✅ Product Registered Successfully
+</h2>
+
+<p>
+
+Product ID:
+
+<strong>
+{{ product_id }}
+</strong>
+
+</p>
+
+<img
+    src="{{ url_for('static', filename='qr/' + qr_filename) }}"
+    class="qr-image"
+    alt="Product QR Code"
+>
+
+<p>
+QR Code Generated Successfully
+</p>
+
+</div>
+
+{% endif %}
+
+
+<form method="POST"
+class="product-form">
+
+<input
+type="text"
+name="product_name"
+placeholder="Product Name"
+required
+>
+
+<input
+type="text"
+name="manufacturer"
+placeholder="Manufacturer"
+required
+>
+
+<input
+type="text"
+name="batch_number"
+placeholder="Batch Number"
+required
+>
+
+<label>
+Manufacturing Date
+</label>
+
+<input
+type="date"
+name="manufacturing_date"
+required
+>
+
+<label>
+Expiry Date
+</label>
+
+<input
+type="date"
+name="expiry_date"
+>
+
+<input
+type="number"
+name="price"
+placeholder="Price"
+step="0.01"
+>
+
+<button type="submit">
+Register Product & Generate QR
+</button>
+
+</form>
+
+<br>
+
+<a href="{{ url_for('admin_dashboard') }}">
+← Admin Dashboard
+</a>
+
+</div>
+
+</body>
+
+</html>

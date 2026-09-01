@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Report Fake Product</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="complaint-box">
+
+<h1>
+🚨 Report Fake Product
+</h1>
+
+<form method="POST">
+
+<input
+type="text"
+name="product_id"
+value="{{ product_id }}"
+placeholder="Product ID"
+required
+>
+
+<textarea
+name="complaint"
+placeholder="Describe why you believe this product is fake..."
+required></textarea>
+
+<button type="submit">
+Submit Complaint
+</button>
+
+</form>
+
+<br>
+
+<a href="{{ url_for('customer_dashboard') }}">
+← Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

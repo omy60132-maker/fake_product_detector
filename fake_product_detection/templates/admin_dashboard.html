@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+Admin Dashboard
+</h1>
+
+<div class="stats">
+
+<div class="card">
+
+<h2>
+{{ product_count }}
+</h2>
+
+<p>
+Products
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+{{ customer_count }}
+</h2>
+
+<p>
+Customers
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+{{ verification_count }}
+</h2>
+
+<p>
+Verifications
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+{{ complaints|length }}
+</h2>
+
+<p>
+Complaints
+</p>
+
+</div>
+
+</div>
+
+
+<br>
+
+<a href="{{ url_for('add_product') }}">
++ Add Product
+</a>
+
+<a href="{{ url_for('logout') }}">
+Logout
+</a>
+
+
+<h2>
+Registered Products
+</h2>
+
+<table>
+
+<tr>
+
+<th>Product ID</th>
+<th>Name</th>
+<th>Manufacturer</th>
+<th>Batch</th>
+
+</tr>
+
+{% for product in products %}
+
+<tr>
+
+<td>
+{{ product["product_id"] }}
+</td>
+
+<td>
+{{ product["product_name"] }}
+</td>
+
+<td>
+{{ product["manufacturer"] }}
+</td>
+
+<td>
+{{ product["batch_number"] }}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<h2>
+🚨 Fake Product Complaint Reports
+</h2>
+
+{% if complaints %}
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Product ID</th>
+<th>Customer</th>
+<th>Complaint</th>
+<th>Status</th>
+<th>Update</th>
+
+</tr>
+
+{% for complaint in complaints %}
+
+<tr>
+
+<td>
+{{ complaint["id"] }}
+</td>
+
+<td>
+{{ complaint["product_id"] }}
+</td>
+
+<td>
+{{ complaint["customer_email"] }}
+</td>
+
+<td>
+{{ complaint["complaint"] }}
+</td>
+
+<td>
+
+<span class="status">
+
+{{ complaint["status"] }}
+
+</span>
+
+</td>
+
+<td>
+
+<form
+method="POST"
+action="{{ url_for(
+'update_complaint_status',
+complaint_id=complaint['id']
+) }}">
+
+<select name="status">
+
+<option>Pending</option>
+
+<option>Investigating</option>
+
+<option>Resolved</option>
+
+<option>Rejected</option>
+
+</select>
+
+<button type="submit">
+Update
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<div class="success">
+
+No complaints reported.
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+
+</html>
