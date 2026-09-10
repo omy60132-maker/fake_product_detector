@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Customer Dashboard</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Customer Dashboard</h1>
+
+<p>
+Welcome, {{ email }}
+</p>
+
+<div class="dashboard-grid">
+
+<a href="{{ url_for('verify') }}"
+class="dashboard-card">
+
+<h2>🔍 Verify Product</h2>
+
+<p>
+Check whether a product is genuine.
+</p>
+
+</a>
+
+
+<a href="{{ url_for('customer_history') }}"
+class="dashboard-card">
+
+<h2>📋 Verification History</h2>
+
+<p>
+View your previous verifications.
+</p>
+
+</a>
+
+
+<a href="{{ url_for('complaint_history') }}"
+class="dashboard-card">
+
+<h2>🚨 Complaints</h2>
+
+<p>
+View your fake product complaints.
+</p>
+
+</a>
+
+</div>
+
+<br>
+
+<a href="{{ url_for('logout') }}">
+Logout
+</a>
+
+</div>
+
+</body>
+
+</html>
