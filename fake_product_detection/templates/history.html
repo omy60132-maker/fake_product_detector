@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Verification History</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+Verification History
+</h1>
+
+{% if history %}
+
+<table>
+
+<tr>
+
+<th>Product ID</th>
+<th>Status</th>
+<th>Date</th>
+
+</tr>
+
+{% for item in history %}
+
+<tr>
+
+<td>
+{{ item["product_id"] }}
+</td>
+
+<td>
+{{ item["verification_status"] }}
+</td>
+
+<td>
+{{ item["verification_time"] }}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<p>
+No verification history available.
+</p>
+
+{% endif %}
+
+<br>
+
+<a href="{{ url_for('customer_dashboard') }}">
+← Customer Dashboard
+</a>
+
+</div>
+
+</body>
+
+</html>

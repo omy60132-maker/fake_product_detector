@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Complaint History</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+Complaint History
+</h1>
+
+{% if complaints %}
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Product ID</th>
+<th>Complaint</th>
+<th>Status</th>
+<th>Date</th>
+
+</tr>
+
+{% for complaint in complaints %}
+
+<tr>
+
+<td>
+{{ complaint["id"] }}
+</td>
+
+<td>
+{{ complaint["product_id"] }}
+</td>
+
+<td>
+{{ complaint["complaint"] }}
+</td>
+
+<td>
+
+<span class="status">
+
+{{ complaint["status"] }}
+
+</span>
+
+</td>
+
+<td>
+{{ complaint["created_at"] }}
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<div class="success">
+
+No complaints submitted yet.
+
+</div>
+
+{% endif %}
+
+<br>
+
+<a href="{{ url_for('customer_dashboard') }}">
+← Customer Dashboard
+</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Verify Product</title>
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="verify-box">
+
+<h1>🔍 Product Verification</h1>
+
+<p>
+Enter the Product ID printed/generated with the QR code.
+</p>
+
+<form method="GET"
+action="{{ url_for('verify') }}">
+
+<input
+type="text"
+name="product_id"
+placeholder="Example: PROD-A1B2C3D4"
+required
+>
+
+<button type="submit">
+Verify Product
+</button>
+
+</form>
+
+<br>
+
+<a href="{{ url_for('customer_dashboard') }}">
+← Customer Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+[
+    {
+        "index": 0,
+        "timestamp": "2026-08-27T16:09:47.038931",
+        "data": {
+            "type": "GENESIS"
+        },
+        "previous_hash": "0",
+        "hash": "4b9086c4a5f68067fffaa2bf11c8810d294f6b23200d10420ab5ae8a5b9372f3"
+    },
+    {
+        "index": 1,
+        "timestamp": "2026-08-27T16:30:36.796175",
+        "data": {
+            "product_id": "PROD-DE19A9EA",
+            "product_name": "iphone 17",
+            "manufacturer": "apple",
+            "batch_number": "345678"
+        },
+        "previous_hash": "4b9086c4a5f68067fffaa2bf11c8810d294f6b23200d10420ab5ae8a5b9372f3",
+        "hash": "b3158c364bda71cabab0e9913a65477d9fe1a2296e238ea606cfef139669a731"
+    },
+    {
+        "index": 2,
+        "timestamp": "2026-08-27T17:02:11.688940",
+        "data": {
+            "product_id": "PROD-4D6E1AE3",
+            "product_name": "facewash",
+            "manufacturer": "Himalaya",
+            "batch_number": "765432"
+        },
+        "previous_hash": "b3158c364bda71cabab0e9913a65477d9fe1a2296e238ea606cfef139669a731",
+        "hash": "351bc9540946061b0d381b3a2a658d0932b620df6e621debb45181e9c57f871e"
+    },
+    {
+        "index": 3,
+        "timestamp": "2026-08-27T17:18:46.767845",
+        "data": {
+            "product_id": "PROD-6DDBD9B4",
+            "product_name": "yippee noodes",
+            "manufacturer": "sunfeast",
+            "batch_number": "DSGF-753447"
+        },
+        "previous_hash": "351bc9540946061b0d381b3a2a658d0932b620df6e621debb45181e9c57f871e",
+        "hash": "64c35e3e4df8bceb17940b3831a8683df9d1d233738c10e81bc596c009587cac"
+    },
+    {
+        "index": 4,
+        "timestamp": "2026-08-27T22:30:51.520349",
+        "data": {
+            "product_id": "PROD-2A73FB72",
+            "product_name": "facewash",
+            "manufacturer": "mamaearth",
+            "batch_number": "76543345"
+        },
+        "previous_hash": "64c35e3e4df8bceb17940b3831a8683df9d1d233738c10e81bc596c009587cac",
+        "hash": "de6fdcb5ecacea23d389ff5c0bbde36790529c962077e55e1057528f22107520"
+    }
+]

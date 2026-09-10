@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Product Verification Result</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+🔍 Product Verification Result
+</h1>
+
+
+{% if status == "GENUINE PRODUCT" %}
+
+<div class="result genuine">
+
+<h2>
+✅ GENUINE PRODUCT
+</h2>
+
+<p>
+This product has been successfully verified.
+</p>
+
+</div>
+
+
+{% elif status == "FAKE / NOT REGISTERED" %}
+
+<div class="result fake">
+
+<h2>
+🚨 FAKE PRODUCT DETECTED
+</h2>
+
+<p>
+This product is not registered in the system.
+</p>
+
+<a
+href="{{ url_for('complaint', product_id=request.args.get('product_id')) }}"
+class="danger-button">
+
+🚨 Report Fake Product
+
+</a>
+
+</div>
+
+
+{% elif status == "SUSPICIOUS PRODUCT" %}
+
+<div class="result suspicious">
+
+<h2>
+⚠️ SUSPICIOUS PRODUCT
+</h2>
+
+<p>
+Blockchain verification failed.
+</p>
+
+{% if product %}
+
+<a
+href="{{ url_for('complaint', product_id=product['product_id']) }}"
+class="danger-button">
+
+🚨 Report Product
+
+</a>
+
+{% endif %}
+
+</div>
+
+{% endif %}
+
+
+{% if product %}
+
+<div class="product-details">
+
+<h2>
+📦 Product Details
+</h2>
+
+<p>
+<strong>Product ID:</strong>
+{{ product["product_id"] }}
+</p>
+
+<p>
+<strong>Product Name:</strong>
+{{ product["product_name"] }}
+</p>
+
+<p>
+<strong>Manufacturer:</strong>
+{{ product["manufacturer"] }}
+</p>
+
+<p>
+<strong>Batch:</strong>
+{{ product["batch_number"] }}
+</p>
+
+<p>
+<strong>Manufacturing Date:</strong>
+{{ product["manufacturing_date"] }}
+</p>
+
+<p>
+<strong>Expiry Date:</strong>
+{{ product["expiry_date"] }}
+</p>
+
+<p>
+<strong>Price:</strong>
+₹{{ product["price"] }}
+</p>
+
+</div>
+
+{% endif %}
+
+
+<a href="{{ url_for('customer_dashboard') }}">
+← Customer Dashboard
+</a>
+
+</div>
+
+</body>
+
+</html>
